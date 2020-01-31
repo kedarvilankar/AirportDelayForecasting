@@ -62,3 +62,5 @@ plt.show()
 #compute performnace
 rmse= np.sqrt(mean_squared_error(valid,forecasts))
 print(rmse)
+
+

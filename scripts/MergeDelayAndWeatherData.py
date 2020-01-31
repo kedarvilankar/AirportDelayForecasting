@@ -8,7 +8,8 @@ Created on Thu Jan 23 12:10:05 2020
 import numpy as np
 import pandas as pd
 
-def get_data_for_learning(delay_columns,weather_columns):
+def get_data_for_learning_with_weather(delay_columns,weather_columns, 
+                                       airport_code):
     # column = ['PERCENT_DELAYED_DEP','AVG_DEP_DELAY',
                                        # 'NUM_SCHEDULED_DEP','NUM_SCEDULED_ARR',
                                        # 'PERCENT_DELAYED_ARR','AVG_ARR_DELAY']
@@ -16,8 +17,8 @@ def get_data_for_learning(delay_columns,weather_columns):
     # weather_column = ["PRECIP_PROBABILITY","TEMPERATURE","WIND_SPEED", "WIND_GUST"]
     
     #load the data
-    dataFileName = "..\data\processed\JFK.csv"
-    weather_data_file = '..\data\processed\JFK_weather.csv'
+    dataFileName = "..\data\processed\\" + airport_code  + ".csv"
+    weather_data_file = "..\data\processed\\" + airport_code +"_weather.csv"
     
     data = pd.read_csv(dataFileName)
     data["DATETIME"]=pd.to_datetime(data['DATETIME']) 

@@ -11,18 +11,18 @@ import matplotlib.pyplot as plt
 from statsmodels.tsa.vector_ar.var_model import VAR
 import matplotlib.pyplot as plt
 from sklearn.metrics import mean_squared_error
-from MergeDelayAndWeatherData import get_data_for_learning
+from MergeDelayAndWeatherData import get_data_for_learning_with_weather
 
-
+airport_code = 'JFK'
 lag_order = 24 # past number of observation to look for forecasts
 delay_columns = ['PERCENT_DELAYED_DEP','AVG_DEP_DELAY',
                                    'NUM_SCHEDULED_DEP','NUM_SCEDULED_ARR',
                                    'PERCENT_DELAYED_ARR','AVG_ARR_DELAY']
-weather_columns = ["PRECIP_PROBABILITY","TEMPERATURE","WIND_SPEED", "WIND_GUST"]
+weather_columns = ["PRECIP_PROBABILITY","TEMPERATURE","WIND_SPEED"]
 all_columns = delay_columns + weather_columns
 
 #load the data
-data = get_data_for_learning(delay_columns,weather_columns)
+data = get_data_for_learning_with_weather(delay_columns,weather_columns, airport_code)
 
 
 # data.drop(data.columns.difference(column),1,inplace=True)

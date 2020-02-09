@@ -36,13 +36,13 @@ valid.drop('PERCENT_DELAYED_DEP',axis=1,inplace=True)
 #building the model
 
 # Fit your model
-#model = pm.auto_arima(train, error_action='ignore', trace=True,
-#                      suppress_warnings=True, maxiter=10,
-#                      seasonal=True, m=20)
-#print("Done Fitting")
+model = pm.auto_arima(train, error_action='ignore', trace=True,
+                      suppress_warnings=True, maxiter=10,
+                      seasonal=True, m=20)
+print("Done Fitting")
 
 #load if model isalready  pickeled
-model = pickle.load( open( "ARIMABaselineModel.sav", "rb" ) )
+# model = pickle.load( open( "ARIMABaselineModel.sav", "rb" ) )
 
 # make your forecasts
 forecasts = model.predict(valid.shape[0])  # predict N steps into the future
@@ -63,4 +63,18 @@ plt.show()
 rmse= np.sqrt(mean_squared_error(valid,forecasts))
 print(rmse)
 
+
+
+test_y = valid.to_numpy()
+
+
+rmse = np.sqrt(np.mean((forecasts-test_y)**2, axis=0))
+print('Model Performance')
+print('RMSE: {:0.4f}.'.format(np.mean(rmse)))
+
+forecasts = forecasts +1
+test_y = test_y +1
+rel = np.mean(np.abs((test_y - forecasts) / test_y),axis=0) * 100
+print('Model Performance')
+print('Rel: {:0.4f}.'.format(np.mean(rel)))
 

@@ -10,12 +10,7 @@ import pandas as pd
 
 def get_data_for_learning_with_weather(delay_columns,weather_columns, 
                                        airport_code):
-    # column = ['PERCENT_DELAYED_DEP','AVG_DEP_DELAY',
-                                       # 'NUM_SCHEDULED_DEP','NUM_SCEDULED_ARR',
-                                       # 'PERCENT_DELAYED_ARR','AVG_ARR_DELAY']
-    
-    # weather_column = ["PRECIP_PROBABILITY","TEMPERATURE","WIND_SPEED", "WIND_GUST"]
-    
+   
     #load the data
     dataFileName = "..\data\processed\\" + airport_code  + ".csv"
     weather_data_file = "..\data\processed\\" + airport_code +"_weather.csv"

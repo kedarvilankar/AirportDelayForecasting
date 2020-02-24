@@ -13,9 +13,9 @@ the proposed forecaster will predict hourly delays for the next 24 hours.
 
 
 ### Directory Navigation
-**data**:  Folder used to dump raw and processed data 
-**notebooks**:  Folder containing Jupyter Notebooks to perform EDA on data
-**train**: Folder containing scripts to train LSTM model. 
+- **data**:  Folder used to dump raw and processed data 
+- **notebooks**:  Folder containing Jupyter Notebooks to perform EDA on data
+- **train**: Folder containing scripts to train LSTM model. 
 	- **OtherBaselineModel**: Subfolder containing scripts to train baseline ARIMA and Vector Auto Regression models
 	
 ### Model Training

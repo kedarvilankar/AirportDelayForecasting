@@ -23,3 +23,6 @@ The final model for the project is an LSTM model. The architecture and the train
 The model trains using 60/20/20 Train/Val/Test and early stoping on validation set loss.
 
 
+### Web App
+URL: https://airport-delay-forecast.herokuapp.com/
+Web App source code is maintained on Heroku Git
